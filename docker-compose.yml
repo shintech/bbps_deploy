@@ -14,5 +14,5 @@ services:
     restart: always
   db:
     image: shintech/database:latest
-    container_name: bbpd_db
+    container_name: bbps_db
     
