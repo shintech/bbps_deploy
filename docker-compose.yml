@@ -1,0 +1,18 @@
+version: '2'
+
+services: 
+  bbps:
+    build: .
+    image: shintech/backbone_postgres_seed:latest
+    container_name: bbps
+    env_file:
+      - ./bbps.env
+    links:
+      - db       
+    ports:
+      - 8000:8000
+    restart: always
+    volumes:
+      - ./data:/data
+  db:
+    image: shintech/database:latest
