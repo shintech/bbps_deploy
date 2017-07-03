@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 services: 
   bbps:
@@ -7,15 +7,15 @@ services:
     container_name: bbps
     env_file:
       - ./bbps.env
-    links:
-      - db       
+    external_links:
+      - postgres  
     ports:
       - 8000:8000
     restart: always
-  db:
-    image: shintech/database:latest
-    container_name: bbps_db
+    networks:
+      default:
+        ipv4_address: 192.168.0.3
 networks:
   default:
     external:
-      name: dockernet
+      name: shintech
