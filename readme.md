@@ -6,7 +6,7 @@ Docker Compose file for shintech/backbone_postgres_seed
 
 ### Usage
 
-#### create network
+#### create network if needed
 
 If network is not already created...
 
