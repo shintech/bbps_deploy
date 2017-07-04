@@ -12,10 +12,20 @@ services:
     ports:
       - 8000:8000
     restart: always
-    networks:
-      default:
-        ipv4_address: 192.168.0.3
-networks:
-  default:
-    external:
-      name: shintech
+#     networks:
+#       default:
+#         ipv4_address: 192.168.0.3
+
+  postgres:
+    image: shintech/database
+    container_name: postgres
+    env_file:
+        - ./db.env
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    restart: always
+    
+# networks:
+#   default:
+#     external:
+#       name: shintech
